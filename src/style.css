@@ -2,6 +2,13 @@ body {
   margin: 0;
 }
 
+#content {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 .header {
   background-color: #1f212c;
   display: flex;
@@ -27,8 +34,10 @@ form {
 }
 
 #search {
-  width: 500px;
-  padding: 10px 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+
   border: 0;
 }
 
@@ -45,12 +54,19 @@ form {
   transform: translateY(2px);
 }
 
+.error {
+  color: red;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: larger;
+}
+
 .mid {
   background-color: #adb4ef;
-  padding: 90px 70px;
+  padding: 100px;
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
 }
 
 .cityName {
@@ -58,20 +74,85 @@ form {
   color: #adb4ef;
   font-family: Arial, Helvetica, sans-serif;
   font-size: x-large;
-  width: 700px;
   text-align: center;
-  margin-top: 0;
+  margin: 0;
   padding: 20px 0;
+  min-width: 100%;
 }
 
 .forecast {
-  height: 400px;
-  width: 700px;
   border: 2px solid black;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 0;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.temp {
+  padding: 30px;
+  font-size: 96px;
+}
+
+.overall {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.sky {
+  font-size: 84px;
+}
+
+.details {
+  font-size: 24px;
+}
+
+.others {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.others div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.category {
+  font-weight: bold;
+  font-size: 17px;
+}
+
+.units {
+  background-color: #1f212c;
+  padding: 20px 0;
+  margin: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.unitToggle {
+  background-color: #1f212c;
+  padding: 10px;
+  border: 2px solid #adb4ef;
+  cursor: pointer;
+  color: #adb4ef;
+}
+
+.unitToggle:active {
+  transform: translateY(2px);
 }
 
 .footer {
