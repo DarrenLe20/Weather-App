@@ -105,7 +105,7 @@ function addContent() {
     main.classList.add("main");
     const temperature = document.createElement("div");
     temperature.classList.add("temp");
-    temperature.textContent = data[1] + "°";
+    temperature.textContent = data[1].toFixed(1) + "°";
 
     const overall = document.createElement("div");
     overall.classList.add("overall");
@@ -118,13 +118,14 @@ function addContent() {
 
     const others = document.createElement("div");
     others.classList.add("others");
+
     const feels = document.createElement("div");
     const a = document.createElement("p");
     a.classList.add("category");
     a.textContent = "Feels like";
     feels.appendChild(a);
     const num1 = document.createElement("p");
-    num1.textContent = parameters[2];
+    num1.textContent = parameters[2].toFixed(1) + "°";
     feels.appendChild(num1);
 
     const humidity = document.createElement("div");
@@ -133,7 +134,7 @@ function addContent() {
     b.textContent = "Humidity";
     humidity.appendChild(b);
     const num2 = document.createElement("p");
-    num2.textContent = parameters[3];
+    num2.textContent = parameters[3] + "%";
     humidity.appendChild(num2);
 
     const max = document.createElement("div");
@@ -142,7 +143,7 @@ function addContent() {
     c.textContent = "MAX temp";
     max.appendChild(c);
     const num3 = document.createElement("p");
-    num3.textContent = parameters[4];
+    num3.textContent = parameters[4].toFixed(1) + "°";
     max.appendChild(num3);
 
     const min = document.createElement("div");
@@ -151,7 +152,7 @@ function addContent() {
     d.textContent = "MIN temp";
     min.appendChild(d);
     const num4 = document.createElement("p");
-    num4.textContent = parameters[5];
+    num4.textContent = parameters[5].toFixed(1) + "°";
     min.appendChild(num4);
 
     const wind = document.createElement("div");
@@ -160,7 +161,7 @@ function addContent() {
     e.textContent = "Wind";
     wind.appendChild(e);
     const num5 = document.createElement("p");
-    num5.textContent = parameters[6];
+    num5.textContent = parameters[6].toFixed(1) + " m/s";
     wind.appendChild(num5);
 
     const visibility = document.createElement("div");
@@ -169,7 +170,7 @@ function addContent() {
     f.textContent = "Visibility";
     visibility.appendChild(f);
     const num6 = document.createElement("p");
-    num6.textContent = parameters[7];
+    num6.textContent = (parameters[7] / 1000).toFixed(1) + " km";
     visibility.appendChild(num6);
 
     const info = document.createElement("div");
@@ -183,9 +184,28 @@ function addContent() {
       if (unit === "C") {
         unit = "F";
         unitToggle.textContent = "Change Unit: " + unit;
+        console.log(parseFloat(temperature.textContent));
+        temperature.textContent =
+          CtoF(parseFloat(temperature.textContent)).toFixed(1) + "°";
+        num1.textContent = CtoF(parseFloat(num1.textContent)).toFixed(1) + "°";
+        num3.textContent = CtoF(parseFloat(num3.textContent)).toFixed(1) + "°";
+        num4.textContent = CtoF(parseFloat(num4.textContent)).toFixed(1) + "°";
+        num5.textContent =
+          (parseFloat(num5.textContent) * 2.237).toFixed(1) + " mph";
+        num6.textContent =
+          (parseFloat(num6.textContent) / 1.609).toFixed(1) + " miles";
       } else {
         unit = "C";
         unitToggle.textContent = "Change Unit: " + unit;
+        temperature.textContent =
+          FtoC(parseFloat(temperature.textContent)).toFixed(1) + "°";
+        num1.textContent = FtoC(parseFloat(num1.textContent)).toFixed(1) + "°";
+        num3.textContent = FtoC(parseFloat(num3.textContent)).toFixed(1) + "°";
+        num4.textContent = FtoC(parseFloat(num4.textContent)).toFixed(1) + "°";
+        num5.textContent =
+          (parseFloat(num5.textContent) / 2.237).toFixed(1) + " m/s";
+        num6.textContent =
+          (parseFloat(num6.textContent) * 1.609).toFixed(1) + " km";
       }
     });
 

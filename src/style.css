@@ -149,6 +149,7 @@ form {
   border: 2px solid #adb4ef;
   cursor: pointer;
   color: #adb4ef;
+  font-size: large;
 }
 
 .unitToggle:active {
