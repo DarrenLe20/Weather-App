@@ -50,7 +50,7 @@ function addContent() {
   async function getCurrWeather(city) {
     try {
       const response = await fetch(
-        `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=a3c7c1bc590b5e8c9c8da6b6aa6ce7c7&units=metric`,
+        `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=a3c7c1bc590b5e8c9c8da6b6aa6ce7c7&units=metric`,
         { mode: "cors" }
       );
       // Error display
